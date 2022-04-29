@@ -10,7 +10,6 @@
  * @References:
  *          1) http://www.microdigitaled.com/ARM/MSP432_ARM/Code/Ver1/red/Chapter3/P3_5.txt
  *          2) https://components101.com/sites/default/files/component_datasheet/4x4%20Keypad%20Module%20Datasheet.pdf?msclkid=26003149c26411ecaa9060c0276b3b25
- *
  */
 
 

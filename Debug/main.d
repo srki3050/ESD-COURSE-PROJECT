@@ -78,6 +78,15 @@ main.obj: C:/ti/ccs1120/ccs/ccs_base/arm/include/msp432p401r.h
 main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/test.h
 main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/lcd.h
 main.obj: C:/ti/ccs1120/ccs/ccs_base/arm/include/msp432.h
+main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/mfrc522.h
+main.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/posix/ccs/unistd.h
+main.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/posix/ccs/sys/types.h
+main.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/posix/ccs/sys/_internal.h
+main.obj: C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/time.h
+main.obj: C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/abi_prefix.h
+main.obj: C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/xlocale/_time.h
+main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/ti_drivers_config.h
+main.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h
 
 ../main.c:
 
@@ -234,4 +243,22 @@ C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFI
 C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/lcd.h:
 
 C:/ti/ccs1120/ccs/ccs_base/arm/include/msp432.h:
+
+C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/mfrc522.h:
+
+C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/posix/ccs/unistd.h:
+
+C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/posix/ccs/sys/types.h:
+
+C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/posix/ccs/sys/_internal.h:
+
+C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/time.h:
+
+C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/abi_prefix.h:
+
+C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/xlocale/_time.h:
+
+C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/ti_drivers_config.h:
+
+C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h:
 

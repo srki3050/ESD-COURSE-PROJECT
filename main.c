@@ -40,7 +40,8 @@
 #include <inc/pwm.h>
 #include <inc/keypad.h>
 #include <inc/test.h>
-#include <lcd.h>
+#include <inc/lcd.h>
+#include <inc/mfrc522.h>
 
 //#define SLAVE_ADDRESS       0x68
 /* Variables */
@@ -170,6 +171,7 @@ void main(void)
     SPI_Init(EUSCI_B0_BASE, SPI0MasterConfig);
     GPIO_Init(GPIO_PORT_P5, GPIO_PIN0);
     TIMERA_Init(TIMER_A1_BASE,UP_MODE,&upConfig,disk_timerproc);
+    MFRC522_Init();
 
     Interrupt_enableMaster();
 
@@ -191,50 +193,89 @@ void main(void)
     get_motor_functioning();
     b = 40;
 
+    uint8_t cardID[5];
+    char buffer[5];
+
     test();
 
     int i;
     while(1) {
         lcd_clear();
-        lcd_set_text("Enter: ");
-        for(i = 0;i < 5;){
-            key = keypad_getkey();
-            if(key != 0){
-                result[i] = key;
-                lcd_write_data(key);
-                i++;
+        lcd_set_text("Enter or scan RFID: ");
+        if (MFRC522_Check(cardID) != MI_OK) {
+            for(i = 0;i < 5;){
+                key = keypad_getkey();
+                if(key != 0){
+                    result[i] = key;
+                    lcd_write_data(key);
+                    i++;
+                }
+            }
+            if((strncmp(result,"569B2",5)==0)||(strncmp(result,"A9B64",5)==0)){
+                b = 40;
+                generate_motor(&b);
+                delay_ms(25);
+                b = 170;
+                degenerate_motor(&b);
+                lcd_clear();
+                lcd_set_text("Accepted");
+                delay_ms(5);
+                r = f_open(&accepted_fil, "accepted.txt", FA_OPEN_ALWAYS | FA_WRITE | FA_READ);
+                r = f_lseek(&accepted_fil, accepted_fil.fptr);
+                f_puts(&result[0],&accepted_fil);
+                f_puts(" ", &accepted_fil);
+                f_puts(&startup_buff[0], &accepted_fil);
+                f_puts("\n", &accepted_fil);
+                f_close(&accepted_fil);
+            }
+            else{
+                lcd_clear();
+                lcd_set_text("Rejected");
+                delay_ms(5);
+                buzzer_state_change(true);
+                play_buzzer(20);
+                r = f_open(&rejected_fil, "rejected.txt", FA_OPEN_ALWAYS | FA_WRITE | FA_READ);
+                r = f_lseek(&rejected_fil, rejected_fil.fptr);
+                f_puts(&result[0],&rejected_fil);
+                f_puts(" ", &rejected_fil);
+                f_puts(&startup_buff[0], &rejected_fil);
+                f_puts("\n", &rejected_fil);
+                f_close(&rejected_fil);
             }
         }
-        if((strncmp(result,"569B2",5)==0)||(strncmp(result,"A9B64",5)==0)){
-            b = 40;
-            generate_motor(&b);
-            delay_ms(25);
-            b = 170;
-            degenerate_motor(&b);
-            lcd_clear();
-            lcd_set_text("Accepted");
-            delay_ms(5);
-            r = f_open(&accepted_fil, "accepted.txt", FA_OPEN_ALWAYS | FA_WRITE | FA_READ);
-            r = f_lseek(&accepted_fil, accepted_fil.fptr);
-            f_puts(&result[0],&accepted_fil);
-            f_puts(" ", &accepted_fil);
-            f_puts(&startup_buff[0], &accepted_fil);
-            f_puts("\n", &accepted_fil);
-            f_close(&accepted_fil);
-        }
         else{
-            lcd_clear();
-            lcd_set_text("Rejected");
-            delay_ms(5);
-            buzzer_state_change(true);
-            play_buzzer(20);
-            r = f_open(&rejected_fil, "rejected.txt", FA_OPEN_ALWAYS | FA_WRITE | FA_READ);
-            r = f_lseek(&rejected_fil, rejected_fil.fptr);
-            f_puts(&result[0],&rejected_fil);
-            f_puts(" ", &rejected_fil);
-            f_puts(&startup_buff[0], &rejected_fil);
-            f_puts("\n", &rejected_fil);
-            f_close(&rejected_fil);
+            sprintf(buffer, "%02x %02x %02x %02x %02x", cardID[0], cardID[1], cardID[2],cardID[3],cardID[4] );
+            if(MFRC522_Compare(buffer, "01 02 03 04 05") == MI_OK){
+                b = 40;
+                generate_motor(&b);
+                delay_ms(25);
+                b = 170;
+                degenerate_motor(&b);
+                lcd_clear();
+                lcd_set_text("Accepted");
+                delay_ms(5);
+                r = f_open(&accepted_fil, "accepted.txt", FA_OPEN_ALWAYS | FA_WRITE | FA_READ);
+                r = f_lseek(&accepted_fil, accepted_fil.fptr);
+                f_puts(&result[0],&accepted_fil);
+                f_puts(" ", &accepted_fil);
+                f_puts(&startup_buff[0], &accepted_fil);
+                f_puts("\n", &accepted_fil);
+                f_close(&accepted_fil);
+            }
+            else{
+                lcd_clear();
+                lcd_set_text("Rejected");
+                delay_ms(5);
+                buzzer_state_change(true);
+                play_buzzer(20);
+                r = f_open(&rejected_fil, "rejected.txt", FA_OPEN_ALWAYS | FA_WRITE | FA_READ);
+                r = f_lseek(&rejected_fil, rejected_fil.fptr);
+                f_puts(&result[0],&rejected_fil);
+                f_puts(" ", &rejected_fil);
+                f_puts(&startup_buff[0], &rejected_fil);
+                f_puts("\n", &rejected_fil);
+                f_close(&rejected_fil);
+            }
         }
     }
 }
