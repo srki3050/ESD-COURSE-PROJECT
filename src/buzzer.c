@@ -16,6 +16,7 @@
 
 /* DriverLib Includes */
 #include <ti/devices/msp432p4xx/driverlib/driverlib.h>
+#include <inc/delay.h>
 
 /* Standard Includes */
 #include <stdint.h>
@@ -23,6 +24,30 @@
 #include <inc/buzzer.h>
 
 bool enable_buzzer = false;
+Timer_A_PWMConfig buzzer_config =
+{
+        //uint_fast16_t clockSource;
+        TIMER_A_CLOCKSOURCE_SMCLK,
+        //uint_fast16_t clockSourceDivider;
+        TIMER_A_CLOCKSOURCE_DIVIDER_1,
+        //uint_fast16_t timerPeriod;
+        1300,
+        //uint_fast16_t compareRegister;
+        TIMER_A_CAPTURECOMPARE_REGISTER_1,
+        //uint_fast16_t compareOutputMode;
+        TIMER_A_OUTPUTMODE_RESET_SET,
+        //uint_fast16_t dutyCycle;
+        10
+};
+
+void buzzer_generate(int *buzzer){
+    buzzer_config.dutyCycle = *buzzer;
+        *buzzer = *buzzer + 10;
+        if(*buzzer == 170)
+            *buzzer = 40;
+    delay_ms(4); // change delay
+    MAP_Timer_A_generatePWM(TIMER_A0_BASE, &buzzer_config);
+}
 
 void play_buzzer(int buzz_count)
 {

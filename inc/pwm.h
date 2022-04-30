@@ -8,8 +8,10 @@
 #ifndef PWM_H_
 #define PWM_H_
 
-void pwm_init(void);
-void pwm_on(void);
-void pwm_off(void);
+#include "ti/devices/msp432p4xx/driverlib/timer_a.h"
+
+void get_motor_functioning();
+void generate_motor(int *b);
+void degenerate_motor(int *b);
 void new_pwm_init(void);
 #endif /* PWM_H_ */

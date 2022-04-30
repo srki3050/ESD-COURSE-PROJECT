@@ -20,6 +20,6 @@
 #include <ti/devices/msp432p4xx/driverlib/driverlib.h>
 #include <stdio.h>
 
-void RTC_init(RTC_C_Calendar start_time);
+char* RTC_init();
 
 #endif /* INC_RTC_H_ */

@@ -13,6 +13,7 @@ C_SRCS += \
 ../src/port.c \
 ../src/pwm.c \
 ../src/rtc.c \
+../src/sd_card.c \
 ../src/test.c \
 ../src/ti_drivers_config.c 
 
@@ -24,6 +25,7 @@ C_DEPS += \
 ./src/port.d \
 ./src/pwm.d \
 ./src/rtc.d \
+./src/sd_card.d \
 ./src/test.d \
 ./src/ti_drivers_config.d 
 
@@ -35,6 +37,7 @@ OBJS += \
 ./src/port.obj \
 ./src/pwm.obj \
 ./src/rtc.obj \
+./src/sd_card.obj \
 ./src/test.obj \
 ./src/ti_drivers_config.obj 
 
@@ -46,6 +49,7 @@ OBJS__QUOTED += \
 "src\port.obj" \
 "src\pwm.obj" \
 "src\rtc.obj" \
+"src\sd_card.obj" \
 "src\test.obj" \
 "src\ti_drivers_config.obj" 
 
@@ -57,6 +61,7 @@ C_DEPS__QUOTED += \
 "src\port.d" \
 "src\pwm.d" \
 "src\rtc.d" \
+"src\sd_card.d" \
 "src\test.d" \
 "src\ti_drivers_config.d" 
 
@@ -68,6 +73,7 @@ C_SRCS__QUOTED += \
 "../src/port.c" \
 "../src/pwm.c" \
 "../src/rtc.c" \
+"../src/sd_card.c" \
 "../src/test.c" \
 "../src/ti_drivers_config.c" 
 

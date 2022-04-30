@@ -53,6 +53,9 @@ src/rtc.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4
 src/rtc.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h
 src/rtc.obj: C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdio.h
 src/rtc.obj: C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdarg.h
+src/rtc.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/fatfs/integer.h
+src/rtc.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/fatfs/ff.h
+src/rtc.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/fatfs/ffconf.h
 
 ../src/rtc.c:
 
@@ -159,4 +162,10 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/
 C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdio.h:
 
 C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdarg.h:
+
+C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/fatfs/integer.h:
+
+C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/fatfs/ff.h:
+
+C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/fatfs/ffconf.h:
 

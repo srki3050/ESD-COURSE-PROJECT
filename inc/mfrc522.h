@@ -65,6 +65,7 @@
 #include <ti/devices/msp432p4xx/driverlib/rom_map.h>
 #include <ti/posix/ccs/unistd.h>   //usleep()
 #include <ti/drivers/GPIO.h>
+#include <ti/devices/msp432p4xx/driverlib/spi.h>
 
 
 
@@ -202,8 +203,6 @@ typedef enum {
 #define MFRC522_DUMMY                   0x00
 
 #define MFRC522_MAX_LEN                 16
-
-
 
 /*
  * Initialize MFRC522 RFID reader

@@ -54,11 +54,21 @@
 #include "inc/ti_drivers_config.h"
 #include "inc/mfrc522.h"
 
-
+eUSCI_SPI_MasterConfig SPI0MasterConfig =
+{
+     EUSCI_B_SPI_CLOCKSOURCE_SMCLK,
+     3000000,
+     500000,
+     EUSCI_B_SPI_MSB_FIRST,
+     EUSCI_B_SPI_PHASE_DATA_CHANGED_ONFIRST_CAPTURED_ON_NEXT,
+     EUSCI_B_SPI_CLOCKPOLARITY_INACTIVITY_HIGH,
+     EUSCI_B_SPI_3PIN
+};
 
 /*
  * Check header file for documentation
  */
+
 uint8_t SPI_SendByte(uint8_t data){
     bool spiTransferOk;
     SPI_Transaction spiTransaction;
@@ -142,7 +152,9 @@ uint8_t MFRC522_ReadRegister(uint8_t addr) {
  */
 void MFRC522_Init(void) {
     //MX_GPIO_Init();
-
+    SPI_Init(EUSCI_B0_BASE, SPI0MasterConfig);
+    GPIO_Init(GPIO_PORT_P5, GPIO_PIN0);
+    CS_Init();
     // reset prior to start
     MFRC522_Reset();
 

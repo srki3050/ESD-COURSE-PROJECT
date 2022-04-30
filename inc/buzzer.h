@@ -25,6 +25,7 @@
 #define BUZZ_CNT        (2)
 
 
+void buzzer_generate(int *buzzer);
 /*********************************************************************************
  * @function:   play_buzzer
  *
