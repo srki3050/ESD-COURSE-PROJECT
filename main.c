@@ -1,5 +1,5 @@
 /*
- * @Name: Abijith
+ * @Name: Abijith and Sricharan
  * @Compiler: CCSTUDIO — Code Composer Studio™ integrated development environment (IDE) version: 11.2.0.00007
  * @Date: 04/20/2022
  * @FileName: main.c
