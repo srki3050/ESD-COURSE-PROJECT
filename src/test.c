@@ -13,30 +13,36 @@
 #include <lcd.h>
 #include <servo_motor.h>
 #include "inc/keypad.h"
+#define MOTOR_START 40
+#define MOTOR_END 170
+#define BUZZER_DELAY 8
+#define DELAY_BETWEEN_EVENTS 10
 void test(){
+    //Detect whether Key press signal is detected by the microprocessor
     lcd_set_text("Enter Any Key: ");
     while(keypad_getkey() == 0);
+    //Test whether LCD is working according to keypad changes
     lcd_clear();
     lcd_set_text("Keypad Tested");
-    delay_ms(10);
-
-    int b = 40;
-    play_buzzer(8);
+    delay_ms(DELAY_BETWEEN_EVENTS);
+    //Test whether motor and buzzer functionality is working using PWM software module
+    int b = MOTOR_START;
+    play_buzzer(BUZZER_DELAY);
     start_motor(&b);
-    delay_ms(25);
-    b = 170;
+    delay_ms(DELAY_BETWEEN_EVENTS);
+    b = MOTOR_END;
     stop_motor(&b);
     lcd_clear();
     lcd_set_text("Motor Tested");
-    delay_ms(10);
-
+    delay_ms(DELAY_BETWEEN_EVENTS);
+    //Write appropriate text messages to the LCD to test whether the functionality is coherent with other hardware components
     lcd_clear();
     lcd_set_text("Testing buzzer ");
 
-    play_buzzer(4);
-
+    play_buzzer(BUZZER_DELAY);
+    //clear the display to get ready for the production code messages.
     lcd_clear();
     lcd_set_text("Testing complete");
-    delay_ms(10);
+    delay_ms(DELAY_BETWEEN_EVENTS);
     lcd_clear();
 }
