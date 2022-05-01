@@ -1,29 +1,23 @@
-/**
- * @file    :   buzzer.c
- * @brief   :   An abstraction for buzzer functions
- *
- *              This source file provides buzzer functions
- *              which are used to initialize and play the buzzer
- *
- * @author  :
- * @date    :
- * @version :   1.0
- *
- * @tools   :   Code Composer Studio
- *
- * @link    :   MSP432 Reference Manual
-*/
+/*
+ * @Name: Sricharan
+ * @Compiler: CCSTUDIO — Code Composer Studio™ integrated development environment (IDE) version: 11.2.0.00007
+ * @Date: 04/20/2022
+ * @FileName: buzzer.c
+ * @Description: Buzzer driver code
+ * @Brief: This file has functions that can
+ *          1) to operate the buzzer based on number of counts - play_buzzer(int buzz_count)
+ * @References:
+ *          1) https://e2e.ti.com/support/tools/code-composer-studio-group/ccs/f/code-composer-studio-forum/857542/ccs-msp432p401r-producing-a-single-tone-using-buzzer-in-edumkii-booster-pack
+ */
 
-/* DriverLib Includes */
-#include <ti/devices/msp432p4xx/driverlib/driverlib.h>
-#include <inc/delay.h>
 
-/* Standard Includes */
-#include <stdint.h>
 
+/*
+ * Header files
+ */
 #include <inc/buzzer.h>
 
-bool enable_buzzer = false;
+
 Timer_A_PWMConfig buzzer_config =
 {
         //uint_fast16_t clockSource;
@@ -40,26 +34,36 @@ Timer_A_PWMConfig buzzer_config =
         10
 };
 
-void buzzer_generate(int *buzzer){
-    buzzer_config.dutyCycle = *buzzer;
-        *buzzer = *buzzer + 10;
-        if(*buzzer == 170)
-            *buzzer = 40;
-    delay_ms(4); // change delay
-    MAP_Timer_A_generatePWM(TIMER_A0_BASE, &buzzer_config);
+
+
+/*
+ * Check header file for documentation
+ */
+void buzzer_init(void){
+    /* Setting MCLK to REFO at 128Khz for LF mode setting SMCLK to 64Khz */
+    MAP_CS_setReferenceOscillatorFrequency(CS_REFO_128KHZ);
+    MAP_CS_initClockSignal(CS_MCLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_1);
+    MAP_CS_initClockSignal(CS_SMCLK, CS_REFOCLK_SELECT, CS_CLOCK_DIVIDER_2);
+    MAP_PCM_setPowerState(PCM_AM_LF_VCORE0);
+    // Configuring GPIO5.6 as peripheral output for PWM
+    MAP_GPIO_setAsPeripheralModuleFunctionOutputPin(GPIO_PORT_P5, GPIO_PIN6, GPIO_PRIMARY_MODULE_FUNCTION);
+
 }
 
+
+
+/*
+ * Check header file for documentation
+ */
 void play_buzzer(int buzz_count)
 {
-    if(enable_buzzer ==  true)
-    {
         volatile int i,j;
 
-        /* Configure P2.4 as output */
-        MAP_GPIO_setAsOutputPin(GPIO_PORT_P2, GPIO_PIN4);
+        /* Configure P5.6 as output */
+        MAP_GPIO_setAsOutputPin(GPIO_PORT_P5, GPIO_PIN6);
 
         /* Turn on the buzzer */
-        MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN4);
+        MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P5, GPIO_PIN6);
 
         for(i = 0; i < buzz_count ; i++)
         {
@@ -67,22 +71,16 @@ void play_buzzer(int buzz_count)
             for(j = 0; j < ON_TIME; j++);
 
             /* Turn off the buzzer */
-            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN4);
+            MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P5, GPIO_PIN6);
 
             /* OFF Time */
             for(j = 0; j < OFF_TIME; j++);
 
             /* Turn on the buzzer */
-            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P2, GPIO_PIN4);
+            MAP_GPIO_setOutputHighOnPin(GPIO_PORT_P5, GPIO_PIN6);
         }
 
         /* Turn off the buzzer */
-        MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P2, GPIO_PIN4);
-    }
-}
-
-void buzzer_state_change(bool state)
-{
-    enable_buzzer = state;
+        MAP_GPIO_setOutputLowOnPin(GPIO_PORT_P5, GPIO_PIN6);
 }
 

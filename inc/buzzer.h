@@ -1,22 +1,27 @@
-/**
- * @file    :   buzzer.h
- * @brief   :   An abstraction for buzzer functions
+/*
+ * @Name: Sricharan
+ * @Compiler: CCSTUDIO — Code Composer Studio™ integrated development environment (IDE) version: 11.2.0.00007
+ * @Date: 04/20/2022
+ * @FileName: buzzer.c
+ * @Description: Buzzer driver code
+ * @Brief: This file has functions that can
+ *          1) to operate the buzzer based on number of counts - play_buzzer(int buzz_count)
  *
- *              This header file provides an abstraction of buzzer functions
- *              which are used to initialize and play the buzzer
- *
- * @author  :
- * @date    :
- * @version :   1.0
- *
- * @tools   :   Code Composer Studio
- *
- * @link    :   MSP432 Reference Manual
-*/
+ * @Pinouts
+ *      P5.6 - (+)
+ *      gnd  - (-)
+ * @References:
+ *          1) https://e2e.ti.com/support/tools/code-composer-studio-group/ccs/f/code-composer-studio-forum/857542/ccs-msp432p401r-producing-a-single-tone-using-buzzer-in-edumkii-booster-pack
+ */
 
 #ifndef BUZZER_H_
 #define BUZZER_H_
+/* DriverLib Includes */
+#include <ti/devices/msp432p4xx/driverlib/driverlib.h>
+#include <inc/delay.h>
 
+/* Standard Includes */
+#include <stdint.h>
 #include <stdbool.h>
 
 /* Define MACROS for buzzer timings */
@@ -25,32 +30,34 @@
 #define BUZZ_CNT        (2)
 
 
-void buzzer_generate(int *buzzer);
-/*********************************************************************************
- * @function:   play_buzzer
+
+
+
+/*
+ * Set MCLK to REFO at 128Khz for LF mode setting SMCLK to 64Khz
+ * set clock for PWM operation
+ * Configuring GPIO5.6 as peripheral output for buzzer
  *
- * @brief   :   Beeps the buzzer count times
+ * @params:
+ *  - int *b
+ *          duty cycle value
+ * @returns:
+ *      None
+ */
+void buzzer_init(void);
+
+
+
+
+/*
+ * Set pin 5.6 as output. Using PWM, create high pulse for a set period of time followed by low pulse.
  *
- * @param   :   buzz_count   - No of beeps of buzzer.
- *
- * @return  :   void
- *
-**********************************************************************************/
+ * @params:
+ *  - int buzzer_count
+ * @returns:
+ *      None
+ */
 void play_buzzer(int buzz_count);
-
-
-/*********************************************************************************
- * @function:   buzzer_state_change
- *
- * @brief   :   Changes the state of the buzzer
- *
- * @param   :   state   - true  - turn ON the buzzer
- *                      - flase - turn OFF the buzzer
- *
- * @return  :   void
- *
-**********************************************************************************/
-void buzzer_state_change(bool state);
 
 
 #endif /* BUZZER_H_ */

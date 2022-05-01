@@ -65,10 +65,12 @@ eUSCI_SPI_MasterConfig SPI0MasterConfig =
      EUSCI_B_SPI_3PIN
 };
 
+
+
+
 /*
  * Check header file for documentation
  */
-
 uint8_t SPI_SendByte(uint8_t data){
     bool spiTransferOk;
     SPI_Transaction spiTransaction;

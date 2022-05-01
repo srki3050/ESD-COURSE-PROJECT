@@ -4,9 +4,6 @@
  * @Date: 04/20/2022
  * @FileName: main.c
  * @Description: Entry point of application
- * @Brief: This file has functions that can
- *
- * @References:
  *
  */
 
@@ -37,12 +34,12 @@
 #include <inc/buzzer.h>
 #include <msp.h>
 #include <inc/delay.h>
-#include <inc/pwm.h>
 #include <inc/keypad.h>
 #include <inc/test.h>
 #include <inc/lcd.h>
 #include <inc/mfrc522.h>
 #include <inc/sd_card.h>
+#include <servo_motor.h>
 
 
 unsigned char key;
@@ -121,16 +118,16 @@ void init(void){
     MFRC522_Init();
 
     sd_card_init(startup_buff);
-    new_pwm_init();
+    buzzer_init();
 }
 
 
 void open_servo(void){
     b = 40;
-    generate_motor(&b);
+    start_motor(&b);
     delay_ms(25);
     b = 170;
-    degenerate_motor(&b);
+    stop_motor(&b);
     lcd_clear();
     lcd_set_text("Accepted");
     delay_ms(5);
@@ -147,7 +144,6 @@ void close_servo(void){
     lcd_clear();
     lcd_set_text("Rejected");
     delay_ms(5);
-    buzzer_state_change(true);
     play_buzzer(20);
     r = f_open(&rejected_fil, "rejected.txt", FA_OPEN_ALWAYS | FA_WRITE | FA_READ);
     r = f_lseek(&rejected_fil, rejected_fil.fptr);

@@ -28,10 +28,9 @@ ORDERED_OBJS += \
 "./src/keypad.obj" \
 "./src/lcd.obj" \
 "./src/mfrc522.obj" \
-"./src/port.obj" \
-"./src/pwm.obj" \
 "./src/rtc.obj" \
 "./src/sd_card.obj" \
+"./src/servo_motor.obj" \
 "./src/test.obj" \
 "./src/ti_drivers_config.obj" \
 "../msp432p401r.cmd" \
@@ -186,8 +185,8 @@ Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols.hex: $(EX
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" "Devices\MSPIO.obj" "Hardware\CS_Driver.obj" "Hardware\GPIO_Driver.obj" "Hardware\SPI_Driver.obj" "Hardware\TIMERA_Driver.obj" "Hardware\UART_Driver.obj" "fatfs\diskio.obj" "fatfs\ff.obj" "fatfs\ffsystem.obj" "fatfs\ffunicode.obj" "fatfs\mmc_MSP432P401r.obj" "src\buzzer.obj" "src\keypad.obj" "src\lcd.obj" "src\mfrc522.obj" "src\port.obj" "src\pwm.obj" "src\rtc.obj" "src\sd_card.obj" "src\test.obj" "src\ti_drivers_config.obj" 
-	-$(RM) "main.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" "Devices\MSPIO.d" "Hardware\CS_Driver.d" "Hardware\GPIO_Driver.d" "Hardware\SPI_Driver.d" "Hardware\TIMERA_Driver.d" "Hardware\UART_Driver.d" "fatfs\diskio.d" "fatfs\ff.d" "fatfs\ffsystem.d" "fatfs\ffunicode.d" "fatfs\mmc_MSP432P401r.d" "src\buzzer.d" "src\keypad.d" "src\lcd.d" "src\mfrc522.d" "src\port.d" "src\pwm.d" "src\rtc.d" "src\sd_card.d" "src\test.d" "src\ti_drivers_config.d" 
+	-$(RM) "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" "Devices\MSPIO.obj" "Hardware\CS_Driver.obj" "Hardware\GPIO_Driver.obj" "Hardware\SPI_Driver.obj" "Hardware\TIMERA_Driver.obj" "Hardware\UART_Driver.obj" "fatfs\diskio.obj" "fatfs\ff.obj" "fatfs\ffsystem.obj" "fatfs\ffunicode.obj" "fatfs\mmc_MSP432P401r.obj" "src\buzzer.obj" "src\keypad.obj" "src\lcd.obj" "src\mfrc522.obj" "src\rtc.obj" "src\sd_card.obj" "src\servo_motor.obj" "src\test.obj" "src\ti_drivers_config.obj" 
+	-$(RM) "main.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" "Devices\MSPIO.d" "Hardware\CS_Driver.d" "Hardware\GPIO_Driver.d" "Hardware\SPI_Driver.d" "Hardware\TIMERA_Driver.d" "Hardware\UART_Driver.d" "fatfs\diskio.d" "fatfs\ff.d" "fatfs\ffsystem.d" "fatfs\ffunicode.d" "fatfs\mmc_MSP432P401r.d" "src\buzzer.d" "src\keypad.d" "src\lcd.d" "src\mfrc522.d" "src\rtc.d" "src\sd_card.d" "src\servo_motor.d" "src\test.d" "src\ti_drivers_config.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

@@ -10,10 +10,9 @@ C_SRCS += \
 ../src/keypad.c \
 ../src/lcd.c \
 ../src/mfrc522.c \
-../src/port.c \
-../src/pwm.c \
 ../src/rtc.c \
 ../src/sd_card.c \
+../src/servo_motor.c \
 ../src/test.c \
 ../src/ti_drivers_config.c 
 
@@ -22,10 +21,9 @@ C_DEPS += \
 ./src/keypad.d \
 ./src/lcd.d \
 ./src/mfrc522.d \
-./src/port.d \
-./src/pwm.d \
 ./src/rtc.d \
 ./src/sd_card.d \
+./src/servo_motor.d \
 ./src/test.d \
 ./src/ti_drivers_config.d 
 
@@ -34,10 +32,9 @@ OBJS += \
 ./src/keypad.obj \
 ./src/lcd.obj \
 ./src/mfrc522.obj \
-./src/port.obj \
-./src/pwm.obj \
 ./src/rtc.obj \
 ./src/sd_card.obj \
+./src/servo_motor.obj \
 ./src/test.obj \
 ./src/ti_drivers_config.obj 
 
@@ -46,10 +43,9 @@ OBJS__QUOTED += \
 "src\keypad.obj" \
 "src\lcd.obj" \
 "src\mfrc522.obj" \
-"src\port.obj" \
-"src\pwm.obj" \
 "src\rtc.obj" \
 "src\sd_card.obj" \
+"src\servo_motor.obj" \
 "src\test.obj" \
 "src\ti_drivers_config.obj" 
 
@@ -58,10 +54,9 @@ C_DEPS__QUOTED += \
 "src\keypad.d" \
 "src\lcd.d" \
 "src\mfrc522.d" \
-"src\port.d" \
-"src\pwm.d" \
 "src\rtc.d" \
 "src\sd_card.d" \
+"src\servo_motor.d" \
 "src\test.d" \
 "src\ti_drivers_config.d" 
 
@@ -70,10 +65,9 @@ C_SRCS__QUOTED += \
 "../src/keypad.c" \
 "../src/lcd.c" \
 "../src/mfrc522.c" \
-"../src/port.c" \
-"../src/pwm.c" \
 "../src/rtc.c" \
 "../src/sd_card.c" \
+"../src/servo_motor.c" \
 "../src/test.c" \
 "../src/ti_drivers_config.c" 
 

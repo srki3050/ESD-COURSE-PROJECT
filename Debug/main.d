@@ -69,10 +69,9 @@ main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system
 main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/Hardware/UART_Driver.h
 main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/rtc.h
 main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/buzzer.h
+main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h
+main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h
 main.obj: C:/ti/ccs1120/ccs/ccs_base/arm/include/msp.h
-main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h
-main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h
-main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/pwm.h
 main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/keypad.h
 main.obj: C:/ti/ccs1120/ccs/ccs_base/arm/include/msp432p401r.h
 main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/test.h
@@ -88,6 +87,7 @@ main.obj: C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/xlocale
 main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/ti_drivers_config.h
 main.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h
 main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/sd_card.h
+main.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/servo_motor.h
 
 ../main.c:
 
@@ -227,13 +227,11 @@ C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFI
 
 C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/buzzer.h:
 
+C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h:
+
+C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h:
+
 C:/ti/ccs1120/ccs/ccs_base/arm/include/msp.h:
-
-C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h:
-
-C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h:
-
-C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/pwm.h:
 
 C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/keypad.h:
 
@@ -264,4 +262,6 @@ C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFI
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/DeviceFamily.h:
 
 C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/sd_card.h:
+
+C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/servo_motor.h:
 

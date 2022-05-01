@@ -1,6 +1,7 @@
 # FIXED
 
 src/buzzer.obj: ../src/buzzer.c
+src/buzzer.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/buzzer.h
 src/buzzer.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h
 src/buzzer.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/adc14.h
 src/buzzer.obj: C:/ti/ccs1120/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdint.h
@@ -52,9 +53,10 @@ src/buzzer.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp43
 src/buzzer.obj: C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/flash.h
 src/buzzer.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h
 src/buzzer.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h
-src/buzzer.obj: C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/buzzer.h
 
 ../src/buzzer.c:
+
+C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/buzzer.h:
 
 C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/driverlib.h:
 
@@ -157,6 +159,4 @@ C:/ti/simplelink_msp432p4_sdk_3_40_01_02/source/ti/devices/msp432p4xx/driverlib/
 C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h:
 
 C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/delay.h:
-
-C:/Users/unnia/workspace_v11/Dual_Way_Security_and_data_logging_system_using_RFID_and_SPI_protocols/inc/buzzer.h:
 

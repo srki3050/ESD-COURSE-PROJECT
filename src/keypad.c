@@ -18,7 +18,6 @@
  * Header files
  */
 #include "inc/keypad.h"
-#include "inc/delay.h"
 
 
 

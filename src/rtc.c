@@ -1,28 +1,35 @@
-/**
- * @file    :   rtc.c
- * @brief   :   An abstraction for RTC functions
+/*
+ * @Name: Sricharan Kidambi
+ * @Compiler: CCSTUDIO — Code Composer Studio™ integrated development environment (IDE) version: 11.2.0.00007
+ * @Date: 04/20/2022
+ * @FileName: rtc.c
+ * @Description: Real time clock driver code
+ * @Brief: This file has functions that can
+ *          1) Intializes real time clock returns start of program date and time - RTC_init()
  *
- *              This source file provides abstraction of RTC functions which are
- *              used to initialize and keep track of time
- *
- * @author  :
- * @date    :
- * @version :   1.0
- *
- * @tools   :   Code Composer Studio
- *
- * @link    :   MSP432 Reference Manual
-*/
-#include <stdbool.h>
-#include <inc/rtc.h>
-#include <fatfs/integer.h>
-#include <fatfs/ff.h>
+ * @References:
+ *          1) Asked for help from Sanish Kharade(TA)
+ */
 
+
+
+/*
+ * Header files
+ */
+#include <inc/rtc.h>
+
+
+
+/*
+ * global variables
+ */
 static volatile RTC_C_Calendar current_time;
 static volatile bool one_second_tracker;
 
 
-
+/*
+ * Check header file for documentation
+ */
 char* RTC_init()
 {
     DWORD str=0;
@@ -78,16 +85,14 @@ char* RTC_init()
 }
 
 
-/*********************************************************************************
- * @function:   RTC_C_IRQHandler
+/*
+ * ISR for RTC
  *
- * @brief   :   ISR for RTC
- *
- * @param   :   none
- *
- * @return  :   void
- *
-**********************************************************************************/
+ * @params:
+ *      None
+ * @returns:
+ *      None
+ */
 void RTC_C_IRQHandler(void)
 {
     uint32_t status;
